@@ -1,4 +1,4 @@
-package com.example.Maquinas;
+package com.example.Maquinas.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

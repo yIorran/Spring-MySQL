@@ -1,5 +1,6 @@
-package com.example.Maquinas;
+package com.example.Maquinas.model;
 
+import com.example.Maquinas.repository.RepositoryGen;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,4 +26,21 @@ public class Controller {
 
         return new ResponseEntity<Object>(repositoryGen.findAll(), HttpStatus.OK);
     }
+
+    @PostMapping(value = "/elo")
+    public void salvaCompraElo(@RequestBody Compra compra){
+        MaquininhaELO maquininhaELO = new MaquininhaELO();
+
+        maquininhaELO.ProcessaPagamento(compra);
+        compra.setValorDaCompra(null);
+    }
+
+    @PostMapping(value = "/visa")
+    public void salvaCompraVisa(@RequestBody Compra compra){
+        MaquininhaVISA maquininhaVISA = new MaquininhaVISA();
+
+        maquininhaVISA.ProcessaPagamento(compra);
+        compra.setValorDaCompra(null);
+    }
+
 }
