@@ -5,15 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @Setter
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
 public class Compra {
 
@@ -22,7 +18,12 @@ public class Compra {
     private Integer Id;
 
     private Double valorDaCompra;
-    private Integer IDcompra;
+    private Integer idCompra;
     private Double taxa;
 
+    public Compra(Double valorDaCompra, Integer idCompra, Double taxa) {
+        this.valorDaCompra = valorDaCompra;
+        this.idCompra = idCompra;
+        this.taxa = taxa;
+    }
 }

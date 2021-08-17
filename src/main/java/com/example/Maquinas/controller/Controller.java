@@ -1,5 +1,8 @@
-package com.example.Maquinas.model;
+package com.example.Maquinas.controller;
 
+import com.example.Maquinas.model.Compra;
+import com.example.Maquinas.model.MaquininhaELO;
+import com.example.Maquinas.model.MaquininhaVISA;
 import com.example.Maquinas.repository.RepositoryGen;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,7 +35,7 @@ public class Controller {
         MaquininhaELO maquininhaELO = new MaquininhaELO();
 
         maquininhaELO.ProcessaPagamento(compra);
-        compra.setValorDaCompra(null);
+        repositoryGen.save(compra);
     }
 
     @PostMapping(value = "/visa")
@@ -40,7 +43,7 @@ public class Controller {
         MaquininhaVISA maquininhaVISA = new MaquininhaVISA();
 
         maquininhaVISA.ProcessaPagamento(compra);
-        compra.setValorDaCompra(null);
+        repositoryGen.save(compra);
     }
 
 }
